@@ -2,11 +2,10 @@ const supertest = require('supertest')
 const app = require('../index')
 const request = supertest(app)
 
-it('Should be return status 200 if have between one and three parameters', async done => {
+it('Should be return status 200 if have between one and three parameters', async () => {
   const response = await request.get('/recipes?i=onion')
 
   expect(response.status).toBe(200)
-  done()
 })
 
 it('Should be return status 400 if no parameter is passed', async done => {
