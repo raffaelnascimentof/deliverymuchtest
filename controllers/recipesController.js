@@ -16,13 +16,13 @@ const getRecipes = async (request, response) => {
       { error: 'Maximo de 3 ingredientes' })
   }
 
-  await recipePuppyService(keyWords.split(',')).then(function (res) {
-    const { results } = res.data
+  const recipe = await recipePuppyService(keyWords.split(','))
 
-    response.status(200).send({
-      key: keyWords,
-      recipes: _.map(results, transform)
-    })
+  const { results } = recipe.data
+
+  response.status(200).send({
+    key: keyWords,
+    recipes: _.map(results, transform)
   })
 }
 
