@@ -1,11 +1,13 @@
 const { transform } = require('../utils/transformResponseJson')
 
 it('should be return a response json in correct format', () => {
+  const giphyUrl = 'image'
+
   const wrongFormat = {
     title: 'Recipe',
     ingredients: 'onion, apple',
     href: 'www.recipePuppy.com',
-    thumbnail: 'image'
+    thumbnail: 'thumbnail'
   }
 
   const correctFormat = {
@@ -15,5 +17,5 @@ it('should be return a response json in correct format', () => {
     gif: 'image'
   }
 
-  expect(transform(wrongFormat)).toStrictEqual(correctFormat)
+  expect(transform(wrongFormat, giphyUrl)).toStrictEqual(correctFormat)
 })

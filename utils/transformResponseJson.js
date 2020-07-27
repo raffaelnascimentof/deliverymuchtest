@@ -1,13 +1,13 @@
 const { alphabeticalOrder } = require('../utils/alphabeticalOrderUtil')
 
-const transform = (recipe) => {
-  const { title, ingredients, href, thumbnail } = recipe
+const transform = (recipe, giphyUrl) => {
+  const { title, ingredients, href } = recipe
 
   return {
     title,
     ingredients: alphabeticalOrder(ingredients),
     link: href,
-    gif: thumbnail
+    gif: giphyUrl
   }
 }
 
