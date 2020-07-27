@@ -21,7 +21,7 @@ const getRecipes = async (request, response) => {
 
     response.status(200).send({
       key: keyWords,
-      recipse: _.map(results, transform)
+      recipes: _.map(results, transform)
     })
   })
 }
