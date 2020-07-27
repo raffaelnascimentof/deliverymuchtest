@@ -6,8 +6,15 @@ const _ = require('lodash')
 const getRecipes = async (request, response) => {
   const keyWords = request.query.i
 
-  if (isUndefined(keyWords)) return response.status(400).send('Nenhum ingrediente foi passado')
-  if (hasMoreThaThreeIngredients(keyWords)) return response.status(400).send('Maximo de 3 ingredientes')
+  if (isUndefined(keyWords)) {
+    return response.status(400).send(
+      { error: 'Nenhum ingrediente foi passado' })
+  }
+
+  if (hasMoreThaThreeIngredients(keyWords)) {
+    return response.status(400).send(
+      { error: 'Maximo de 3 ingredientes' })
+  }
 
   await recipePuppyService(keyWords.split(',')).then(function (res) {
     const { results } = res.data
