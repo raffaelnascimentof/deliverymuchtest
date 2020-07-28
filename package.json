@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --name recipes-backend",
+    "start": "node index.js",
     "dev": "nodemon",
-    "test": "jest --watch --runInBand --detectOpenHandles"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "axios": "0.19.2",
-    "express": "4.17.1",    
-    "pm2": "4.4.0"
+    "express": "4.17.1"   
   }
 }
